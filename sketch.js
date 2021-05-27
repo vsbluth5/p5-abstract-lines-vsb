@@ -5,12 +5,16 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
-function draw() {
-  stroke(25);
-}
+function draw() {}
 
 function mousePressed() {
   for (let i = 0; i < 3; i++) {
+    strokeWeight(random(5,10))
+    stroke(
+      random(mouseX % 255),
+      random(mouseY % 255),
+      random((windowWidth - mouseX) % 255)
+    );
     line(
       prevX + random(-10, 10),
       prevY + random(-10, 10),
