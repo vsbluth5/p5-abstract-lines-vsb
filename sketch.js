@@ -1,27 +1,36 @@
-let prevX;
-let prevY;
+let x1 = windowWidth/2;
+let x2 = windowWidth/2+5;
+let y1 = windowHeight/2;
+let y2 = windowHeight/2;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
-function draw() {}
-
-function mousePressed() {
+function draw() {
   for (let i = 0; i < 3; i++) {
-    strokeWeight(random(5,10))
+    strokeWeight(random(2,5))
     stroke(
-      random(mouseX % 255),
-      random(mouseY % 255),
-      random((windowWidth - mouseX) % 255)
+      random(x2 % 255),
+      random(y2 % 255),
+      random((windowWidth - x2) % 255)
     );
     line(
-      prevX + random(-10, 10),
-      prevY + random(-10, 10),
-      mouseX + random(-10, 10),
-      mouseY + random(-10, 10)
+      x1 + random(-10, 10),
+      y1 + random(-10, 10),
+      x2 + random(-10, 10),
+      y2 + random(-10, 10)
     );
-  }
-  prevX = mouseX;
-  prevY = mouseY;
+  } // end of fow-loop
+  
+  x1 = x2;
+  y1 = y2;
+  
+  x2 = random(windowWidth)
+  y2 = random(windowHeight)
+}
+
+
+function mousePressed() {
+  
 }
